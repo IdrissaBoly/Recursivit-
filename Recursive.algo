@@ -1,0 +1,29 @@
+ALGORITHM Recursive
+VAR
+ mot : Chaîne de caractères;
+  len_mot : Entier;
+  i : Entier;
+BEGIN
+    **Initialisation des variables**
+
+  mot = mot.lower();
+  mot = mot.strip();
+  len_mot = len(mot);
+
+  **Si le mot est vide ou contient un seul caractère, il est un palindrome**
+
+  if (len_mot <= 1)THEN
+    return true;
+
+  **Sinon, on compare les deux premières lettres du mot**
+
+  if (mot[0] != mot[len_mot - 1])THEN
+    return False;
+
+  **On supprime les deux premières lettres du mot et on appelle la fonction récursive**
+
+  len_mot -= 2
+  i = 0
+  return est_palindrome(mot[i:len_mot]);
+
+END
